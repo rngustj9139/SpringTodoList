@@ -6,6 +6,7 @@ import Koo.ToDoList.model.TodoResponse;
 import Koo.ToDoList.repository.TodoRepository;
 import Koo.ToDoList.service.TodoService;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.ObjectUtils;
 import org.springframework.web.bind.annotation.*;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Slf4j // sout 대신 log 사용
 @CrossOrigin // CORS 이슈를 해결하는 어노테이션
 @RestController
 @RequestMapping("/")
@@ -23,7 +25,8 @@ public class TodoController {
 
     @PostMapping
     public ResponseEntity<TodoResponse> create(@RequestBody TodoRequest request) {
-        System.out.println("CREATE");
+        // System.out.println("CREATE");
+        log.info("CREATE");
 
         if(ObjectUtils.isEmpty(request.getTitle())) {
             return ResponseEntity.badRequest().build();
@@ -44,7 +47,7 @@ public class TodoController {
 
     @GetMapping("{id}")
     public ResponseEntity<TodoResponse> readOne(@PathVariable Long id) {
-        System.out.println("READ ONE");
+        log.info("READ ONE");
 
         TodoEntity result = this.service.searchById(id);
 
@@ -53,7 +56,7 @@ public class TodoController {
 
     @GetMapping
     public ResponseEntity<List<TodoResponse>> readAll() {
-        System.out.println("READ ALL");
+        log.info("READ ALL");
 
         List<TodoEntity> list = this.service.searchAll();
         List<TodoResponse> response = list.stream().map(TodoResponse::new)
@@ -64,7 +67,7 @@ public class TodoController {
 
     @PatchMapping("{id}")
     public ResponseEntity<TodoResponse> update(@PathVariable Long id, @RequestBody TodoRequest request) {
-        System.out.println("UPDATE");
+        log.info("UPDATE");
 
         TodoEntity result = this.service.updateById(id, request);
 
@@ -73,7 +76,7 @@ public class TodoController {
 
     @DeleteMapping("{id}")
     public ResponseEntity<?> deleteOne(@PathVariable Long id) {
-        System.out.println("DELETE");
+        log.info("DELETE");
 
         this.service.deleteById(id);
 
@@ -82,7 +85,7 @@ public class TodoController {
 
     @DeleteMapping
     public ResponseEntity<?> deleteAll() {
-        System.out.println("DELETE ALL");
+        log.info("DELETE ALL");
 
         this.service.deleteAll();
         return ResponseEntity.ok().build();

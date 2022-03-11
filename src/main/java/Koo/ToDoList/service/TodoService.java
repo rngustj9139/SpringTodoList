@@ -1,9 +1,9 @@
 package Koo.ToDoList.service;
 
 import Koo.ToDoList.model.TodoEntity;
-import Koo.ToDoList.model.TodoRequest;
+import Koo.ToDoList.model.dto.TodoRequest;
 import Koo.ToDoList.repository.TodoRepository;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
@@ -11,7 +11,7 @@ import org.springframework.web.server.ResponseStatusException;
 import java.util.List;
 
 @Service
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class TodoService {
 
     private final TodoRepository todoRepository;

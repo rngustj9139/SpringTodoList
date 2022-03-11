@@ -1,17 +1,14 @@
 package Koo.ToDoList.service;
 
 import Koo.ToDoList.model.TodoEntity;
-import Koo.ToDoList.model.TodoRequest;
+import Koo.ToDoList.model.dto.TodoRequest;
 import Koo.ToDoList.repository.TodoRepository;
-import Koo.ToDoList.service.TodoService;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.*;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.web.server.ResponseStatusException;
-
-import javax.swing.text.html.Option;
 
 import java.util.Optional;
 

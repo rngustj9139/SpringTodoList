@@ -1,5 +1,6 @@
-package Koo.ToDoList.model;
+package Koo.ToDoList.model.dto;
 
+import Koo.ToDoList.model.TodoEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

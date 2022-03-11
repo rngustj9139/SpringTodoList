@@ -1,11 +1,10 @@
 package Koo.ToDoList.controller;
 
 import Koo.ToDoList.model.TodoEntity;
-import Koo.ToDoList.model.TodoRequest;
-import Koo.ToDoList.model.TodoResponse;
-import Koo.ToDoList.repository.TodoRepository;
+import Koo.ToDoList.model.dto.TodoRequest;
+import Koo.ToDoList.model.dto.TodoResponse;
 import Koo.ToDoList.service.TodoService;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.ObjectUtils;
@@ -14,18 +13,17 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Slf4j // sout 대신 log 사용
+@Slf4j
 @CrossOrigin // CORS 이슈를 해결하는 어노테이션
 @RestController
 @RequestMapping("/")
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class TodoController {
 
     private final TodoService service;
 
     @PostMapping
     public ResponseEntity<TodoResponse> create(@RequestBody TodoRequest request) {
-        // System.out.println("CREATE");
         log.info("CREATE");
 
         if(ObjectUtils.isEmpty(request.getTitle())) {

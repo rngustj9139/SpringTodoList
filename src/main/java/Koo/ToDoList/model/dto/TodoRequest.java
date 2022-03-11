@@ -1,4 +1,4 @@
-package Koo.ToDoList.model;
+package Koo.ToDoList.model.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

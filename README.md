@@ -54,3 +54,6 @@ Todo-backend|
 ![todoBackendTest2](https://user-images.githubusercontent.com/43543906/157857940-21f3146b-510a-44da-90ba-3d67d6eb49ca.png)
 
 -------------------------------
+
+
+> 경희대학교 소프트웨어융합학과 구현서 [mnb9139@khu.ac.kr]
